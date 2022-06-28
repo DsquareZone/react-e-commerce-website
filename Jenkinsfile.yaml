@@ -16,7 +16,7 @@ pipeline:
         - sh "sudo cp -r * ${WORKSPACE}/build/ /var/www/react-e-commerce-website/"
    - stage: "Restarting Nginx Server"
      steps:
-        - sh "systemctl restart enginx"    
+        - sh "systemctl restart nginx"    
    - stage: "Pipeline after execution"
      steps:
         - sh "echo 'Pipeline script was executed successfully'"      
