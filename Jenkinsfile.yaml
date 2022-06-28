@@ -5,8 +5,7 @@ pipeline:
    stages:
    - stage: "Checkout"
      steps:
-        - git 'https://github.com/DsquareZone/react-e-commerce-website
-.git'      
+        - git 'https://github.com/DsquareZone/react-e-commerce-website.git'      
    - stage: "Build ReactJS App"  
      steps: 
         - sh "sudo npm install"
