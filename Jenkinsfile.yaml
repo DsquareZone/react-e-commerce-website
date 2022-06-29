@@ -15,7 +15,7 @@ pipeline:
         - sh "sudo cp -r * ${WORKSPACE}/build/ /var/www/react-e-commerce-website/"
    - stage: "Docker Build Image"
      steps: 
-        - sh 'docker build -f Dockerfile -t surya116gd/nodeapp:latest .' 
+        - sh 'docker build -f surya116gd/nodeapp:latest .' 
    - stage: "Docker Login"
      steps:
         - sh 'docker login -u surya116gd -p 94402539-f782-4f43-a28f-c60f7537ca9d'     
