@@ -14,6 +14,7 @@ pipeline:
      steps:
         - sh "sudo rm -rf /var/www/jenp"     
         - sh "sudo cp -r * ${WORKSPACE}/build/ /var/www/react-e-commerce-website/"
+        - sh "cp -r * /var/www/react-e-commerce-website/" 
    - stage: "Restarting Nginx Server"
      steps:
         - sh "sudo systemctl restart nginx"    
