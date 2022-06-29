@@ -11,8 +11,7 @@ pipeline:
         - sh "sudo npm install"
         - sh "sudo npm run build"
    - stage: "Deploy ReactJS App"
-     steps:
-        - sh "sudo rm -rf /var/www/react-e-commerce-website"     
+     steps:     
         - sh "sudo cp -r * ${WORKSPACE}/build/ /var/www/react-e-commerce-website/"
    - stage: "Restarting Nginx Server"
      steps:
