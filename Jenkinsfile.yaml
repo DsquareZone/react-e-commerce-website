@@ -12,11 +12,17 @@ pipeline:
         - sh "sudo npm run build"
    - stage: "Deploy ReactJS App"
      steps:
-        - sh "sudo rm -rf /var/www/jenp"     
+        - sh "sudo rm -rf /var/www/react-e-commerce-website"     
         - sh "sudo cp -r * ${WORKSPACE}/build/ /var/www/react-e-commerce-website/"
-   - stage: "Restarting Nginx Server"
+   - stage: "Docker Login"
      steps:
-        - sh "sudo systemctl restart nginx"    
+        - sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'     
+   - stage:
+     steps:   
+        - sh 'docker push surya116gd/nodeapp:latest'  
+   - stage: "Docker Logout"
+     steps: 
+        - sh 'docker logout'     
    - stage: "Pipeline after execution"
      steps:
         - sh "echo 'Pipeline script was executed successfully'"      
